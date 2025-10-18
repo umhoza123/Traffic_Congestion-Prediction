@@ -1,7 +1,7 @@
 import pickle
 import numpy as np
 import streamlit as st
-with open(r'C:\Users\Rachel\Desktop\data set\ving.pkl', 'rb') as f:
+with open(r'ving.pkl', 'rb') as f:
     model=pickle.load(f)
 st.title("traffic congestion")
 st.write("fill the following information") 
@@ -33,4 +33,5 @@ if week=='sun':
 if st.button("predict"):
     data=np.array([[CarCount,BikeCount,BusCount,Total,days]])
     pred=model.predict(data)
+
     st.success(f"traffic congestion:{pred[0]}")
