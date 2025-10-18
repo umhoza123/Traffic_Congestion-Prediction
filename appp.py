@@ -10,7 +10,7 @@ CarCount=st.number_input("CarCount")
 BikeCount=st.number_input("BikeCount")
 BusCount=st.number_input("BusCount")
 Total=st.number_input("Total")
-
+days=0
 if week=='Mon':
     days=1
 if week=='Tue':
@@ -26,12 +26,8 @@ if week=='sat':
 if week=='sun':
     days=7
 
-
-    
-        
-
 if st.button("predict"):
     data=np.array([[CarCount,BikeCount,BusCount,Total,days]])
     pred=model.predict(data)
-
     st.success(f"traffic congestion:{pred[0]}")
+
